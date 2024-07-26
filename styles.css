@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Add transition for background color */
+}
+
+/* Change background color when menu is open */
+#menu-toggle:checked ~ body {
+    background-color: #e0e0e0; /* Light grey background */
+}
+
+/* Header styles */
+header {
+    margin: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+header p {
+    margin: 5px 0;
+    font-size: 18px;
+}
+
+header a {
+    color: #333;
+    text-decoration: none;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+
+header i {
+    margin-right: 8px;
+}
+
+/* Menu container styles */
+.menu-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.menu-button-container {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 2;
+    border: 2px solid #ff0000; /* Change border to red */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s ease, background-color 0.3s ease; /* Add background color transition */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adding shadow */
+}
+
+.menu-button-container:hover {
+    border-color: #FFD700; /* Change to yellow on hover */
+}
+
+/* Change background color to grey when checked */
+#menu-toggle:checked + .menu-button-container {
+    background-color: #cccccc;
+}
+
+/* Remove checkbox default styles */
+#menu-toggle {
+    display: none;
+}
+
+.menu-button,
+.menu-button:before,
+.menu-button:after {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    display: block;
+    content: '';
+    transition: all 0.2s;
+}
+
+.menu-button:before {
+    top: -10px;
+}
+
+.menu-button:after {
+    top: 10px;
+}
+
+/* Animation for menu button transforming into an X shape */
+#menu-toggle:checked + .menu-button-container .menu-button {
+    transform: rotate(45deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button:before {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu-toggle:checked + .menu-button-container .menu-button:after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+/* Menu styles */
+.menu {
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Display menu when checkbox is checked */
+#menu-toggle:checked ~ .menu {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.menu-item {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adding shadow */
+}
+
+.menu-item:hover {
+    background-color: #ff0000; /* Change to red on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+}
+
+/* Menu items positions when checkbox is checked */
+#menu-toggle:checked ~ .menu .menu-item:nth-child(1) {
+    transform: translate(-70px, 0);
+}
+
+#menu-toggle:checked ~ .menu .menu-item:nth-child(2) {
+    transform: translate(-140px, 0);
+}
+
+#menu-toggle:checked ~ .menu .menu-item:nth-child(3) {
+    transform: translate(-210px, 0);
+}
+
+#menu-toggle:checked ~ .menu .menu-item:nth-child(4) {
+    transform: translate(-280px, 0);
+}
